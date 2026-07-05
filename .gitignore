@@ -21,3 +21,10 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Generated files
+server/uploads/
+server/outputs/
+
+# Temporary test files
+server/test_voice.py
