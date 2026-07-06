@@ -3,6 +3,7 @@ import shutil
 
 from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
+from fastapi.responses import FileResponse
 
 from app.services.translator import TranslatorService
 from app.services.speech import SpeechService
@@ -44,8 +45,6 @@ def transcribe(audio: UploadFile = File(...)):
 
     os.makedirs("uploads", exist_ok=True)
 
-    # Temporary workaround because HTTP Shortcuts
-    # removes the original file extension.
     file_path = os.path.join("uploads", "audio.mp3")
 
     with open(file_path, "wb") as buffer:
@@ -66,3 +65,18 @@ def transcribe(audio: UploadFile = File(...)):
         "translation": translation,
         "audio_file": audio_file
     }
+
+
+@app.get("/audio")
+def get_audio():
+
+    audio_path = "outputs/translated.mp3"
+
+    if not os.path.exists(audio_path):
+        return {"error": "No translated audio found."}
+
+    return FileResponse(
+        audio_path,
+        media_type="audio/mpeg",
+        filename="translated.mp3"
+    )
