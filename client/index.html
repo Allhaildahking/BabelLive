@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabelLive</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>BabelLive</h1>
+    <p class="subtitle">Speak. Translate. Connect.</p>
+
+    <div class="languages">
+
+        <select id="fromLang">
+            <option value="en">English</option>
+        </select>
+
+        <span>→</span>
+
+        <select id="toLang">
+            <option value="es">Spanish</option>
+        </select>
+
+    </div>
+
+    <button id="recordBtn">
+        🎤 Start Recording
+    </button>
+
+    <div class="card">
+        <h3>Original</h3>
+        <p id="originalText">Waiting...</p>
+    </div>
+
+    <div class="card">
+        <h3>Translation</h3>
+        <p id="translatedText">Waiting...</p>
+    </div>
+
+    <button id="playBtn">
+        🔊 Play Translation
+    </button>
+
+</div>
+
+<script type="module" src="/static/app.js"></script>
+
+</body>
+</html>

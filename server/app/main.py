@@ -1,6 +1,8 @@
 import os
 import shutil
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
@@ -10,6 +12,11 @@ from app.services.speech import SpeechService
 from app.services.voice import VoiceService
 
 app = FastAPI(title="BabelLive")
+app.mount(
+    "/static",
+    StaticFiles(directory="../client"),
+    name="static"
+)
 
 translator = TranslatorService()
 speech = SpeechService()
@@ -21,12 +28,8 @@ class TranslationRequest(BaseModel):
 
 
 @app.get("/")
-def root():
-    return {
-        "name": "BabelLive",
-        "status": "running",
-        "version": "0.3.0"
-    }
+def home():
+    return FileResponse("../client/index.html")
 
 
 @app.post("/translate")
@@ -45,7 +48,7 @@ def transcribe(audio: UploadFile = File(...)):
 
     os.makedirs("uploads", exist_ok=True)
 
-    file_path = os.path.join("uploads", "audio.mp3")
+    file_path = os.path.join("uploads", "audio.webm")
 
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(audio.file, buffer)
