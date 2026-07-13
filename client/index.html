@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabelLive</title>
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BabelLive Demo</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="/static/style.css">
+
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>BabelLive</h1>
-    <p class="subtitle">Speak. Translate. Connect.</p>
+<h1>BabelLive</h1>
 
-    <div class="languages">
+<p class="subtitle">
+Real-Time AI Speech Translation
+</p>
 
-        <select id="fromLang">
-            <option value="en">English</option>
-        </select>
+<button id="recordBtn">
+🎤 Hold to Speak
+</button>
 
-        <span>→</span>
+<div class="card">
 
-        <select id="toLang">
-            <option value="es">Spanish</option>
-        </select>
+<h3>Original</h3>
 
-    </div>
-
-    <button id="recordBtn">
-        🎤 Start Recording
-    </button>
-
-    <div class="card">
-        <h3>Original</h3>
-        <p id="originalText">Waiting...</p>
-    </div>
-
-    <div class="card">
-        <h3>Translation</h3>
-        <p id="translatedText">Waiting...</p>
-    </div>
-
-    <button id="playBtn">
-        🔊 Play Translation
-    </button>
+<p id="originalText">
+Waiting...
+</p>
 
 </div>
 
-<script type="module" src="/static/app.js"></script>
+<div class="card">
+
+<h3>Spanish</h3>
+
+<p id="translatedText">
+Waiting...
+</p>
+
+</div>
+
+</div>
+
+<script type="module" src="/static/app.js?v=6"></script>
 
 </body>
 </html>
