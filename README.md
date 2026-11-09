@@ -1,55 +1,39 @@
-BabelLive
+# BabelLive
 
-AI-powered real-time speech translation for live broadcasts.
+**Real-time speech translation for live broadcasts.**
 
-Overview
+BabelLive is an early-stage project exploring how AI can make live events more accessible across language barriers.
 
-BabelLive is a real-time AI translation platform that converts live spoken language into natural-sounding multilingual audio with ultra-low latency.
+The initial use case is English-to-Spanish translation for church services and other live broadcasts, with OBS Studio as the intended broadcast workflow.
 
-The platform is designed for churches, conferences, live events, webinars, classrooms, and organizations that want to reach audiences speaking different languages without requiring a human interpreter.
+## Initial MVP direction
 
-The first version (MVP) focuses on translating live English speech into natural Spanish audio in real time.
+The first version is being planned around:
 
-Vision
+- Capturing live English speech
+- Transcribing and translating speech into Spanish
+- Generating Spanish speech audio
+- Feeding translated audio into an OBS-based broadcast workflow
 
-To remove language barriers from live communication by making AI-powered multilingual broadcasting simple, scalable, and accessible worldwide.
+A **2–5 second end-to-end latency** is a design target, not a verified performance result.
 
-MVP Features
+## Intended use cases
 
-- Live English speech recognition
-- Real-time English-to-Spanish translation
-- Natural AI-generated Spanish voice
-- OBS Studio integration
-- Low-latency streaming (target: 2–5 seconds)
-- Support for live broadcasting to platforms such as YouTube, Facebook, church apps, and websites
+- Church services
+- Conferences and live events
+- Webinars and online classes
+- Community broadcasts
 
-Planned Future Features
+## Planned technology
 
-- Multiple language support
-- Speaker identification
-- AI-generated subtitles
-- Voice cloning
-- Church management dashboard
-- API for third-party integration
-- SaaS platform for organizations worldwide
+The proposed stack includes Python, FastAPI, OBS Studio, FFmpeg, and AI services for speech recognition, translation, and text-to-speech. Supporting infrastructure such as Docker, PostgreSQL, and Redis may be introduced as the system develops.
 
-Tech Stack
+These are planned components, not a claim that the full stack or feature set is already implemented.
 
-- Python
-- FastAPI
-- OBS Studio
-- FFmpeg
-- Docker
-- PostgreSQL
-- Redis
-- AI Speech Recognition
-- AI Translation
-- AI Text-to-Speech
+## Project status
 
-Project Status
+🚧 **Early development.** The project is currently at the architecture and MVP-planning stage. The features above describe the intended direction; they should not be read as a list of completed capabilities.
 
-🚧 Early Development (Architecture & MVP Planning)
-
-License
+## License
 
 Private Repository — All Rights Reserved.
